@@ -1,2 +1,2 @@
 # Java
-Work-space for java coding, which includes core and advance java concepts.
+java concepts sample coding.
