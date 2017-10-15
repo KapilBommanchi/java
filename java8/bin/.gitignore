@@ -1,0 +1,7 @@
+/exceptions/
+/com/
+#ignore files
+*.classpath
+*.project
+*.settings/*
+*/bin/*
