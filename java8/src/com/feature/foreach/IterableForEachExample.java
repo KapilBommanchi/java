@@ -1,4 +1,4 @@
-package com.features.type;
+package com.feature.foreach;
 
 import java.util.ArrayList;
 import java.util.HashMap;
