@@ -6,3 +6,5 @@
 ../.recommenders/
 ../README.md~
 .recommenders/
+.idea/
+intellij-workspace.iml
