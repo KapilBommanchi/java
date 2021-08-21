@@ -1,0 +1,28 @@
+Java Object Cloning Best Practices::
+1. Use default Object clone() method only when your class has primitives and immutable variables or you want shallow copy. In case of inheritance, you will have to check all the classes you are extending till the Object level.
+2. You can also define copy constructor if your class has mostly mutable properties.
+3. Utilize Object clone() method by calling super.clone() in overridden clone method, then make necessary changes for deep copying of mutable fields.
+4. If your class is serializable, you can use serialization for cloning. However, it will come with a performance hit, so do some benchmarking before using serialization for cloning.
+5. If you are extending a class and it has defined clone method properly using deep copy, then you can utilize default clone method. For example, we have properly defined clone() method in Employee class as follows.
+@Override
+public Object clone() throws CloneNotSupportedException {
+
+	Object obj = super.clone();
+
+	Employee emp = (Employee) obj;
+
+	// deep cloning for immutable fields
+	emp.setProps(null);
+	Map<String, String> hm = new HashMap<>();
+	String key;
+	Iterator<String> it = this.props.keySet().iterator();
+	// Deep Copy of field by field
+	while (it.hasNext()) {
+		key = it.next();
+		hm.put(key, this.props.get(key));
+	}
+	emp.setProps(hm);
+
+	return emp;
+}
+
